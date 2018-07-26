@@ -1,0 +1,63 @@
+<h4>Formularios <small>template</small></h4>
+<hr>
+<form [formGroup]="forma" (ngSubmit)="guardar()">
+
+    <div>
+        <div class="form-group row" [ngClass]="{ 'has-danger':( forma.controls['nombre'].errors?.required || forma.controls['nombre'].errors?.minlength) && forma.controls['nombre'].touched}">
+            <label class="col-2 col-form-label">Nombre</label>
+            <div class="col-8">
+                <input class="form-control" formControlName="nombre" type="text" placeholder="Nombre">
+                <div *ngIf="forma.controls['nombre'].errors?.required" class="form-control-feedback">
+                    Este campo es requerido
+                </div>
+                <div *ngIf="forma.controls['nombre'].errors?.minlength" class="form-control-feedback">
+                    Requiere 3 caracteres
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row" [ngClass]="{ 'has-danger':( forma.controls['apellido'].errors?.required || forma.controls['apellido'].errors?.minlength) && forma.controls['apellido'].touched}">
+        <label class="col-2 col-form-label">Apellido</label>
+        <div class="col-8">
+            <input class="form-control" formControlName="apellido" placeholder="Apellido" type="text">
+            <div *ngIf="forma.controls['apellido'].errors?.required && forma.controls['apellido'].touched" class="form-control-feedback">
+                Este campo es requerido
+            </div>
+            <div *ngIf=" forma.controls['apellido'].errors?.minlength && forma.controls['apellido'].touched" class="form-control-feedback">
+                Requiere {{ forma.controls['apellido'].errors.minlength.requiredLength }} caracteres
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group row" [ngClass]="{ 'has-danger':( forma.controls['correo'].errors?.required || forma.controls['correo'].errors?.minlength) && forma.controls['correo'].touched}">
+        <label class="col-2 col-form-label">Correo</label>
+        <div class="col-md-8">
+            <input class="form-control" formControlName="correo" placeholder="Correo electrónico" type="email">
+            <div *ngIf="forma.controls['correo'].errors?.required && forma.controls['correo'].touched" class="form-control-feedback">
+                Este campo es requerido
+            </div>
+            <div *ngIf="forma.controls['correo'].errors?.pattern" class="form-control-feedback">
+                El campo no tiene el formato de correo
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class=" form-group row ">
+        <label class="col-2 col-form-label ">&nbsp;</label>
+        <div class="input-group col-md-8 ">
+            <button type="submit " class="btn btn-outline-primary " [disabled]="!forma.valid ">
+            <!-- <button type="submit " class="btn btn-outline-primary "> -->
+    Guardar
+    </button>
+        </div>
+    </div>
+
+</form>
+{{ forma.valid }}
+<!-- <div>
+    <pre>{{ forma | json}}</pre>
+</div> -->

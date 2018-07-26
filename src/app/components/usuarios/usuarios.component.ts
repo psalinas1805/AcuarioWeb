@@ -18,4 +18,9 @@ export class UsuariosComponent implements OnInit {
      console.log(this.usuarios);
   }
 
+addUser() {
+  this.router.navigate(['signup']);
+}
+
+
 }

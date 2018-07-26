@@ -30,16 +30,14 @@ dataSet: any;
   }
 
   getData() {
-  this.authService.postData(this.userPostData, 'chartTempPh').then((result) =>{
+  this.authService.postData(this.userPostData, 'chartTempPh').then((result) => {
     this.responseChartData = result;
     if (this.responseChartData.chartData) {
       this.dataSet = this.responseChartData.chartData;
       console.log(this.dataSet);
     } else {
       console.log('No access on getData');
-      
     }
-
   });
   }
   

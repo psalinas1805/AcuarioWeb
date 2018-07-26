@@ -1,11 +1,12 @@
 import { Routes, RouterModule, Router } from '@angular/router';
-import { NgModule } from '@angular/core';
+// import { NgModule } from '@angular/core';
 
 import { LoginComponent } from './components/login/login.component';
 
 import { HomeComponent } from './components/home/home.component';
 import { PreciosComponent } from './components/precios/precios.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 const APP_ROUTES: Routes = [
@@ -13,6 +14,7 @@ const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'precios', component: PreciosComponent },
     { path: 'usuarios', component: UsuariosComponent },
+    { path: 'signup', component: SignupComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'login' },
 
 
