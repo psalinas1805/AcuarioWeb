@@ -1,0 +1,28 @@
+<header>
+
+    <h3>Hola {{ userDetails.name }}</h3>
+
+</header>
+<hr>
+<div class="container card-rows">
+    <h4>Los datos de tu acuario son</h4>
+    <ul>
+        <li>
+            Id Acuario: {{ userDetails.idacuario }}
+        </li>
+        <li>
+            Nombre Acuario: {{ userDetails.nomacuario }}
+        </li>
+    </ul>
+    <hr>
+    <br>
+    <div>
+        <h4>Tus mediciones </h4>
+        <ul>
+            <li *ngFor="let item of dataSet">
+                <h5>{{ item.description }}: {{ item.value }} {{ item.state}}</h5>
+            </li>
+
+        </ul>
+    </div>
+</div>
