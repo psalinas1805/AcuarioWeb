@@ -1,26 +1,40 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers } from "@angular/http";
+import { Usuario } from '../interfaces/usuario.interface';
 
-const apiUrl = 'http://happypez.tk/AuthServices/api/index.php/';
 
 @Injectable({
   providedIn: "root"
 })
 export class AuthService {
 
-  
-  private usuarios: Usuario[] = [];
+  apiUrl:string = 'http://happypez.tk/AuthServices/api/index.php/';
+
+
   constructor(public http: Http) {
-    console.log("Hello AuthService");
   }
 
-  postData(credenciales, type) {
-   
-   console.log(credenciales);
+
+signUp( usuario:Usuario){
+
+  let body = JSON.stringify(usuario);
+  let headers = new Headers({
+    'Content-Type':'application/json'
+  });
+
+  // return this.http.post( this.apiUrl, body, { headers:headers } )
+  //      .map( res =>{
+  //      console.log(res.json());
+  //      return res.json();
+  //      });
+    
+}
+
+   postData(credenciales, type) {
    
     return new Promise((resolve, reject) => {
       let headers = new Headers();
-      this.http.post(apiUrl + type, JSON.stringify(credenciales), { headers: headers })
+      this.http.post(this.apiUrl + type, JSON.stringify(credenciales), { headers: headers })
         .subscribe(
           (data: any ) => {         
             resolve(data.json());
@@ -32,19 +46,7 @@ export class AuthService {
     });
   }
 
-  getUsers() {
-    console.log('usuarios');
-    return(this.usuarios);
-  }
+ 
 
 
-
-}
-
-export interface Usuario {
-  user_id: number;
-  idacuario: number;
-  nomacuario: string;
-  name: string;
-  token: string;
 }

@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 
 import { APP_ROUTING } from './app.routes';
 
+import { UsuariosService } from './services/usuarios.service';
 
 
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { PreciosComponent } from './components/precios/precios.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { EditUserComponent } from './components/edituser/edituser.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { SignupComponent } from './components/signup/signup.component';
     UsuariosComponent,
     PreciosComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,9 @@ import { SignupComponent } from './components/signup/signup.component';
     ReactiveFormsModule,
     APP_ROUTING
   ],
-  providers: [],
+  providers: [
+    UsuariosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

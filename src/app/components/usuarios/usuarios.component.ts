@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService, Usuario } from '../../services/auth.service';
-import { Router} from '@angular/router';
-
+import { UsuariosService } from '../../services/usuarios.service';
+import { Router } from '@angular/router';
+import { Usuario } from "../../interfaces/usuario.interface";
 
 @Component({
   selector: 'app-usuarios',
@@ -10,17 +10,33 @@ import { Router} from '@angular/router';
 })
 export class UsuariosComponent implements OnInit {
 
-  usuarios: Usuario[] = [];
-  constructor(private authService: AuthService, private router: Router) { }
+  usuarios: any;
+  regiones: any;
+  comunas: any;
+  constructor(private usuarioService: UsuariosService, private router: Router) {
 
-  ngOnInit() {
-     this.usuarios = this.authService.getUsers();
-     console.log(this.usuarios);
+
+    this.usuarioService.getUsers('getUsers')
+      .subscribe(data => {
+        this.usuarios = data.userData;
+        console.log(this.usuarios);
+      });
+
+
+
   }
 
-addUser() {
-  this.router.navigate(['signup']);
-}
+  ngOnInit() {
+
+  }
+
+  addUser() {
+    this.router.navigate(['signup','nuevo']);
+  }
+  editUser(user_id) {
+    this.router.navigate(['signup','user_id']);
+  }
+
 
 
 }

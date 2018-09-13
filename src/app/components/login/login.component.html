@@ -1,22 +1,22 @@
-<div class="container">
+<div class="container main.container " style="max-width: 30rem;" >
 
     <h2>
         Ingresa Happy Pez
     </h2>
+<hr>
 
 
-
-    <div class="form-group card-rows">
-        <label for="exampleDropdownFormEmail2">Nombre de usuario</label>
-        <input type="text" required class="form-control " [(ngModel)]="userData.username" id="username" placeholder="psalinas">
+    <div class="form-group " style="max-width: 18rem;">
+        <label for="nombre">Nombre de usuario</label>
+        <input type="text" required class="form-control"  [(ngModel)]="userData.username" id="username" placeholder="psalinas">
     </div>
-    <div class="form-group">
-        <label for="exampleDropdownFormPassword2">Contraseña</label>
+    <div class="form-group" style="max-width: 18rem;">
+        <label for="contraseña">Contraseña</label>
         <input type="password" required class="form-control" [(ngModel)]="userData.password" id="password" placeholder="Contraseña">
     </div>
 
 
-    <button type="submit" class="btn btn-primary" (click)="login()">Ingresar</button>
+    <button type="submit" class="btn btn-primary text-center" (click)="login()">Ingresar</button>
     <div *ngIf="divAccess" class="alert alert-danger" role="alert">
         Credenciales incorrectas, vuelve a intentarlo
     </div>

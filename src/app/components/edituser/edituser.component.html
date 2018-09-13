@@ -1,5 +1,6 @@
-<h4>Agregar Usuario</h4>
-
+<h3>Usuario
+  <small>Nombre...</small>
+</h3>
 <button class="btn btn-outline-danger" [routerLink]="['/usuarios']">
   Regresar
 </button>
@@ -17,7 +18,7 @@
           <label class="col-3 col-form-label">Usuario</label>
           <div class="col">
 
-            <input class="form-control"  type="text" placeholder="Usuario" formControlName="usuario">
+            <input class="form-control" type="text" placeholder="Usuario" formControlName="usuario">
 
             <div *ngIf="!forma.controls['usuario'].valid && forma.controls['usuario'].touched" class="form-control-feedback">
               El usuario es necesario.
@@ -145,7 +146,6 @@
   <div class="col-3-18">
     {{ forma.valid}}  {{forma.status}}
     {{ forma.value | json}}
-    {{nuevo}}
   </div>
 </div>
 

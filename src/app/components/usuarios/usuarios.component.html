@@ -1,12 +1,58 @@
-<h3>Usuarios</h3>
+<h1>Usuarios</h1>
+<hr>
 
-<button class="btn btn-outline-primary" (click)="addUser()">Crear usuario</button>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            1 of 2
-        </div>
-        <div class="col">
-            2 of 2
-        </div>
+
+<div class="row">
+    <div class="col-md-12 text-right">
+        <button class="btn btn-outline-primary" (click)="addUser()">Crear usuario</button>
     </div>
+
+</div>
+<br>
+
+
+<div class="row animated fadeIn fast">
+    <div class="col-md-12">
+
+        <div class="table-responsive">
+
+            <table class="table">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>Id</th>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of usuarios">
+                        <td>{{user.user_id}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.nombre}} {{user.apellido}}</td>
+                        <td>{{user.email}}</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-primary" [routerLink]="['/signup',user.user_id]">Editar</button>
+                            <!-- <button class="btn btn-outline-primary" (click)="editUser()">Editar</button> -->
+                            <button class="btn btn-outline-primary" (click)="editUser(user.user_id)">Desactivar</button>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+ 
+
+
+
+
+    </div>
+
+
+
+
+
+</div>

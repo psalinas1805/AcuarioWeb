@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { UsuariosService } from '../../services/usuarios.service';
 import { Router} from '@angular/router';
 
 
@@ -14,12 +14,12 @@ responseData: any;
 userData = {"username": "", "password": ""};
 divAccess = false;
 
-constructor(private authService: AuthService, private router: Router) { }
+constructor(private usuarioService: UsuariosService, private router: Router) { }
 
 login() {
   console.log('Hola login');
   if (this.userData.username  && this.userData.password) {
-    this.authService.postData(this.userData, "login").then((result) => {
+  this.usuarioService.postData(this.userData, 'login').then((result) => {   
       this.responseData = result;
       if (this.responseData.userData) {
         localStorage.setItem('userData', JSON.stringify(this.responseData));
